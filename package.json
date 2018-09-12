@@ -1,0 +1,38 @@
+{
+  "name": "expoVK",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "cpu-stat": "^2.0.1",
+    "express": "^4.16.3",
+    "form-data": "^2.3.2",
+    "fs": "^0.0.2",
+    "google-tts-api": "^0.0.2",
+    "mathjs": "^5.1.1",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "ms": "^2.1.1",
+    "node-vk-bot": "^1.0.3",
+    "os": "^0.1.1",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
