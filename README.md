@@ -7,6 +7,7 @@ Used **`node-vk-bot`** to communicate with chat groups.
 
 > *vk-io is fucking hard to stupid people as me* - **jarvis**
 
+
 ### Commands
 Prefix is `+`, defined in ```constants.js```
 - 8ball
@@ -24,3 +25,5 @@ Prefix is `+`, defined in ```constants.js```
 - random
 - voice
 - voteban
+=======
+
