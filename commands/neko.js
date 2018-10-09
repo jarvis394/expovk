@@ -23,6 +23,7 @@ exports.run = (bot, message, args) => {
     request(body.neko).pipe(fs.createWriteStream("neko" +  date + '.png'));
 
     serverLink.then(async link => {
+      setTimeout(async () => {
       await request.post(
         link.upload_url, {
           formData: {
@@ -34,12 +35,33 @@ exports.run = (bot, message, args) => {
             body = JSON.parse(body);
             
             bot.api("photos.saveMessagesPhoto", {"photo": body.photo, "server": body.server, "hash": body.hash}).then(doc => {
-              bot.send("", message.peer_id, {attachment: "photo" + doc[0].owner_id + "_" + doc[0].id});
+              bot.send("", message.peer_id, {
+                "attachment": "photo" + doc[0].owner_id + "_" + doc[0].id, 
+                "keyboard": JSON.stringify(
+                  {
+                    "one_time": true, 
+                    "buttons": [
+                      [ 
+                        { 
+                          "action": 
+                          { 
+                            "type": "text", 
+                            "payload": "{\"command\": \"neko\"}",
+                            "label": "more!" 
+                          }, 
+                          "color": "default" 
+                        }
+                      ]
+                    ] 
+                  })
+              })
+          .catch(e => console.log(e));
               fs.unlink("neko" + date + ".png", () => {});
-            }).catch(e => {bot.send("Не удалось поймать некочана 😿", message.peer_id); console.log("> [WARN] Neko error"); fs.unlink("neko" + date + ".png", () => {});});
+            }).catch(e => {bot.send("Не удалось поймать некочана 😿", message.peer_id); console.log("> [WARN] Neko error:\n", e); fs.unlink("neko" + date + ".png", () => {});});
           }
         }
       );
+    }, 2500);
     });
   });
 
