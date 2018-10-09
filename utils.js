@@ -13,7 +13,3 @@ module.exports.random = (min, max) => {
   rand = Math.round(rand);
   return rand;
 }
-
-module.exports.getPrefix = () => {
-  return prefix;
-}

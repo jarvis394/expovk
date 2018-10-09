@@ -19,6 +19,7 @@ exports.run = (bot, message, args) => {
   });
 
   get(options).then(body => {
+    console.log(body.neko)
     var date = Date.now();
     request(body.neko).pipe(fs.createWriteStream("lewd" +  date + '.png'));
 
